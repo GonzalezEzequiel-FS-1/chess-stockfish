@@ -10,6 +10,3 @@ const stockfish = spawn('stockfish');
 // Improve performance on Pi 5
  stockfish.stdin.write('setoption name Threads value 4\n');
  stockfish.stdin.write('setoption name Hash value 256\n');
-
-
- 

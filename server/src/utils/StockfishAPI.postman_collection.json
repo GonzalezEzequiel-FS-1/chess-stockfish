@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "Stockfish API",
+    "_postman_id": "stockfish-api-full",
+    "description": "Full Stockfish chess engine API collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:3069/api/testing", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","testing"] }
+      }
+    },
+    {
+      "name": "Play / Best Move",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"moves\": [\"e2e4\", \"e7e5\"],\n  \"depth\": 10\n}"
+        },
+        "url": { "raw": "http://localhost:3069/api/play", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","play"] }
+      }
+    },
+    {
+      "name": "Analyze Raw",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"moves\": [\"e2e4\", \"e7e5\"],\n  \"depth\": 10\n}"
+        },
+        "url": { "raw": "http://localhost:3069/api/analyze", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","analyze"] }
+      }
+    },
+    {
+      "name": "Analyze JSON",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"moves\": [\"e2e4\", \"e7e5\"],\n  \"depth\": 10,\n  \"multiPV\": 3\n}"
+        },
+        "url": { "raw": "http://localhost:3069/api/analyze-json", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","analyze-json"] }
+      }
+    },
+    {
+      "name": "Analyze MultiPV",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"moves\": [\"e2e4\"],\n  \"depth\": 10,\n  \"multiPV\": 5\n}" },
+        "url": { "raw": "http://localhost:3069/api/analyze-multi", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","analyze-multi"] }
+      }
+    },
+    {
+      "name": "Analyze FEN",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"fen\": \"r1bqkbnr/pppppppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 2 3\",\n  \"depth\": 12\n}" },
+        "url": { "raw": "http://localhost:3069/api/fen", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","fen"] }
+      }
+    },
+    {
+      "name": "Engine Performance",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:3069/api/performance", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","performance"] }
+      }
+    },
+    {
+      "name": "New Game",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": { "raw": "http://localhost:3069/api/newgame", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","newgame"] }
+      }
+    },
+    {
+      "name": "Undo Move(s)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"steps\": 1\n}" },
+        "url": { "raw": "http://localhost:3069/api/undo", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","undo"] }
+      }
+    },
+    {
+      "name": "Engine Config",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"Threads\": 4,\n  \"Hash\": 256,\n  \"Skill\": 20,\n  \"MultiPV\": 3,\n  \"Ponder\": true\n}" },
+        "url": { "raw": "http://localhost:3069/api/config", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","config"] }
+      }
+    },
+    {
+      "name": "Go Infinite",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"moves\": [\"e2e4\"]\n}" },
+        "url": { "raw": "http://localhost:3069/api/go-infinite", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","go-infinite"] }
+      }
+    },
+    {
+      "name": "Stop Infinite Search",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": { "raw": "http://localhost:3069/api/stop", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","stop"] }
+      }
+    },
+    {
+      "name": "Analyze PGN",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"pgn\": \"1. e4 e5 2. Nf3 Nc6 3. Bb5 a6\"\n}" },
+        "url": { "raw": "http://localhost:3069/api/analyze-pgn", "protocol": "http", "host": ["localhost"], "port": "3069", "path": ["api","analyze-pgn"] }
+      }
+    }
+  ]
+}
+
