@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const { spawn } = require('child_process');
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config()
+const PORT = process.env.PORT
 app.use(cors()); // allow cross-origin requests
 app.use(express.json()); // parse JSON requests
 
@@ -49,7 +52,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-const PORT = 3000;
+
 app.listen(PORT, () => {
   console.log(`Stockfish server running on http://localhost:${PORT}`);
 });
